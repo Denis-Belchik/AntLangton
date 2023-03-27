@@ -29,9 +29,9 @@ public class AntGame {
         int y = ant.getY();
         int newX = x;
         int newY = y;
-        String direction = "right";
+        Ant.DirectionAnt direction = ant.getState();
         if (tempSprite == Settings.spriteAreaWhite) {
-            direction = "right";
+            direction = Ant.DirectionAnt.RIGHT;
             switch (ant.getState()) {
                 case TOP:
                     newY = y == Settings.sizeY - 1 ? 0 : y + 1;
@@ -47,7 +47,7 @@ public class AntGame {
                     break;
             }
         } else if (tempSprite == Settings.spriteAreaBleak) {
-            direction = "left";
+            direction = Ant.DirectionAnt.LEFT;
             switch (ant.getState()) {
                 case TOP:
                     newY = y == 0 ? Settings.sizeY : y - 1;

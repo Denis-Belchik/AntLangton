@@ -3,27 +3,27 @@ package AntLangton;
 import java.util.HashMap;
 
 class Ant {
-    enum StateAnt {
+    enum DirectionAnt {
         TOP,
         RIGHT,
         BOTTOM,
         LEFT
     }
 
-    private final HashMap<StateAnt, Character> stateMap = new HashMap<>();
-    private StateAnt state;
+    private final HashMap<DirectionAnt, Character> stateMap = new HashMap<>();
+    private DirectionAnt state;
     private int x, y;
     private char sprite;
 
     Ant() {
         this.sprite = Settings.spriteAntTop;
-        this.state = StateAnt.TOP;
+        this.state = DirectionAnt.TOP;
         this.y = Settings.sizeY / 2;
         this.x = Settings.sizeX / 2;
-        this.stateMap.put(StateAnt.TOP, Settings.spriteAntTop);
-        this.stateMap.put(StateAnt.RIGHT, Settings.spriteAntRight);
-        this.stateMap.put(StateAnt.BOTTOM, Settings.spriteAntBottom);
-        this.stateMap.put(StateAnt.LEFT, Settings.spriteAntLeft);
+        this.stateMap.put(DirectionAnt.TOP, Settings.spriteAntTop);
+        this.stateMap.put(DirectionAnt.RIGHT, Settings.spriteAntRight);
+        this.stateMap.put(DirectionAnt.BOTTOM, Settings.spriteAntBottom);
+        this.stateMap.put(DirectionAnt.LEFT, Settings.spriteAntLeft);
     }
 
     int getX() {
@@ -42,21 +42,23 @@ class Ant {
         this.sprite = sprite;
     }
 
-    StateAnt getState() {
+    DirectionAnt getState() {
         return state;
     }
 
-    void setState(StateAnt state) {
+    void setState(DirectionAnt state) {
         this.state = state;
     }
 
-    void changeStateAnt(String direction) {
+    void changeStateAnt(DirectionAnt direction) {
         int index;
-        if (direction.equals("right"))
-            index = getState().ordinal() == Ant.StateAnt.values().length - 1 ? 0 : getState().ordinal() + 1;
+        if (direction.equals(DirectionAnt.RIGHT))
+            index = getState().ordinal() == DirectionAnt.values().length - 1 ? 0 : getState().ordinal() + 1;
+        else if (direction.equals(DirectionAnt.LEFT))
+            index = getState().ordinal() == 0 ? DirectionAnt.values().length - 1 : getState().ordinal() - 1;
         else
-            index = getState().ordinal() == 0 ? Ant.StateAnt.values().length - 1 : getState().ordinal() - 1;
-        setState(Ant.StateAnt.values()[index]);
+            index = getState().ordinal();
+        setState(DirectionAnt.values()[index]);
         setSprite(stateMap.get(state));
     }
 
