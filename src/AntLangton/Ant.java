@@ -16,14 +16,14 @@ class Ant {
     private char sprite;
 
     Ant() {
-        this.sprite = Settings.spriteAntTop;
+        this.sprite = Settings.SPRITE_ANT_TOP;
         this.state = DirectionAnt.TOP;
-        this.y = Settings.sizeY / 2;
-        this.x = Settings.sizeX / 2;
-        this.stateMap.put(DirectionAnt.TOP, Settings.spriteAntTop);
-        this.stateMap.put(DirectionAnt.RIGHT, Settings.spriteAntRight);
-        this.stateMap.put(DirectionAnt.BOTTOM, Settings.spriteAntBottom);
-        this.stateMap.put(DirectionAnt.LEFT, Settings.spriteAntLeft);
+        this.y = Settings.SIZE_Y / 2;
+        this.x = Settings.SIZE_X / 2;
+        this.stateMap.put(DirectionAnt.TOP, Settings.SPRITE_ANT_TOP);
+        this.stateMap.put(DirectionAnt.RIGHT, Settings.SPRITE_ANT_RIGHT);
+        this.stateMap.put(DirectionAnt.BOTTOM, Settings.SPRITE_ANT_BOTTOM);
+        this.stateMap.put(DirectionAnt.LEFT, Settings.SPRITE_ANT_LEFT);
     }
 
     int getX() {
@@ -38,16 +38,8 @@ class Ant {
         return sprite;
     }
 
-    void setSprite(char sprite) {
-        this.sprite = sprite;
-    }
-
     DirectionAnt getState() {
         return state;
-    }
-
-    void setState(DirectionAnt state) {
-        this.state = state;
     }
 
     void changeStateAnt(DirectionAnt direction) {
@@ -58,8 +50,8 @@ class Ant {
             index = getState().ordinal() == 0 ? DirectionAnt.values().length - 1 : getState().ordinal() - 1;
         else
             index = getState().ordinal();
-        setState(DirectionAnt.values()[index]);
-        setSprite(stateMap.get(state));
+        this.state = DirectionAnt.values()[index];
+        this.sprite = stateMap.get(state);
     }
 
     void changeCoordinateAnt(int x, int y) {

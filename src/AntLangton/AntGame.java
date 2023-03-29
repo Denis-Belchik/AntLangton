@@ -30,43 +30,44 @@ public class AntGame {
         int newX = x;
         int newY = y;
         Ant.DirectionAnt direction = ant.getState();
-        if (tempSprite == Settings.spriteAreaWhite) {
+        if (tempSprite == Settings.SPRITE_AREA_WHITE) {
             direction = Ant.DirectionAnt.RIGHT;
             switch (ant.getState()) {
                 case TOP:
-                    newY = y == Settings.sizeY - 1 ? 0 : y + 1;
+                    newY = y == Settings.SIZE_Y - 1 ? 0 : y + 1;
                     break;
                 case RIGHT:
-                    newX = x == Settings.sizeX - 1 ? 0 : x + 1;
+                    newX = x == Settings.SIZE_X - 1 ? 0 : x + 1;
                     break;
                 case BOTTOM:
-                    newY = y == 0 ? Settings.sizeY - 1 : y - 1;
+                    newY = y == 0 ? Settings.SIZE_Y - 1 : y - 1;
                     break;
                 case LEFT:
-                    newX = x == 0 ? Settings.sizeX - 1 : x - 1;
+                    newX = x == 0 ? Settings.SIZE_X - 1 : x - 1;
                     break;
             }
-        } else if (tempSprite == Settings.spriteAreaBleak) {
+        } else if (tempSprite == Settings.SPRITE_AREA_BLEAK) {
             direction = Ant.DirectionAnt.LEFT;
             switch (ant.getState()) {
                 case TOP:
-                    newY = y == 0 ? Settings.sizeY : y - 1;
+                    newY = y == 0 ? Settings.SIZE_Y : y - 1;
                     break;
                 case RIGHT:
-                    newX = x == 0 ? Settings.sizeX : x - 1;
+                    newX = x == 0 ? Settings.SIZE_X : x - 1;
                     break;
                 case BOTTOM:
-                    newY = y == Settings.sizeY - 1 ? 0 : y + 1;
+                    newY = y == Settings.SIZE_Y - 1 ? 0 : y + 1;
                     break;
                 case LEFT:
-                    newX = x == Settings.sizeX - 1 ? 0 : x + 1;
+                    newX = x == Settings.SIZE_X - 1 ? 0 : x + 1;
                     break;
             }
         }
         ant.changeStateAnt(direction);
         ant.changeCoordinateAnt(newX, newY);
-        area.setSprite(tempSprite == Settings.spriteAreaWhite ? Settings.spriteAreaBleak : Settings.spriteAreaWhite, x, y);
+
+        area.setSprite(tempSprite == Settings.SPRITE_AREA_WHITE ? Settings.SPRITE_AREA_BLEAK : Settings.SPRITE_AREA_WHITE, x, y);
         tempSprite = area.getSprite(newX, newY);
-        area.setSprite(ant.getSprite(), newX, newY);
+        area.setSprite(ant.getSprite(), ant.getX(), ant.getY());
     }
 }
