@@ -1,12 +1,12 @@
 package AntLangton;
 
 class Settings {
-    static int sizeX = 6;
-    static int sizeY = 10;
-    static char spriteAntTop = '\u25B2';
-    static char spriteAntRight = '\u25B6';
-    static char spriteAntBottom = '\u25BC';
-    static char spriteAntLeft = '\u25C0';
-    static char spriteAreaWhite = '\u25A0';
-    static char spriteAreaBleak = '\u25A2';
+    static final int SIZE_X = 7;
+    static final int SIZE_Y = 11;
+    static final char SPRITE_ANT_TOP = '\u25B2';
+    static final char SPRITE_ANT_RIGHT = '\u25B6';
+    static final char SPRITE_ANT_BOTTOM = '\u25BC';
+    static final char SPRITE_ANT_LEFT = '\u25C0';
+    static final char SPRITE_AREA_WHITE = '\u25A0';
+    static final char SPRITE_AREA_BLEAK = '\u25A2';
 }
