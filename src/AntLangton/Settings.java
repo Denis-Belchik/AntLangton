@@ -1,8 +1,8 @@
 package AntLangton;
 
 class Settings {
-    static final int SIZE_X = 7;
-    static final int SIZE_Y = 11;
+    static final int SIZE_X = 15;
+    static final int SIZE_Y = 31;
     static final char SPRITE_ANT_TOP = '\u25B2';
     static final char SPRITE_ANT_RIGHT = '\u25B6';
     static final char SPRITE_ANT_BOTTOM = '\u25BC';

@@ -50,10 +50,10 @@ public class AntGame {
             direction = Ant.DirectionAnt.LEFT;
             switch (ant.getState()) {
                 case TOP:
-                    newY = y == 0 ? Settings.SIZE_Y : y - 1;
+                    newY = y == 0 ? Settings.SIZE_Y - 1 : y - 1;
                     break;
                 case RIGHT:
-                    newX = x == 0 ? Settings.SIZE_X : x - 1;
+                    newX = x == 0 ? Settings.SIZE_X - 1 : x - 1;
                     break;
                 case BOTTOM:
                     newY = y == Settings.SIZE_Y - 1 ? 0 : y + 1;
